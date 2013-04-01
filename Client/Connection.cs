@@ -69,6 +69,7 @@ namespace Client
         {
             if (m_Socket != null)
             {
+                m_Sender.Close();
                 m_Socket.Dispose();
                 m_Socket = null;
                 m_ServerConnectionState = ServerConnectionState.Disconnected;

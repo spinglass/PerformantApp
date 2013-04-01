@@ -50,6 +50,8 @@ namespace Client
 
             m_DataWriter = null;
             m_Writer.Writer = null;
+
+            m_State = ConnectionState.Disconnected;
         }
 
         public async Task<bool> Handshake()
