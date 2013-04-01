@@ -81,10 +81,17 @@ namespace Client
             bool success = false;
             if (IsOpen)
             {
-                Task<Sender.SendCommandResult> task = m_Sender.SendCommand(cmdData, cmdDataCount, rspData, rspDataCount);
-                task.Wait();
-                success = task.Result.Success;
-                rspDataCount = task.Result.RspDataCount;
+                try
+                {
+                    Task<Sender.SendCommandResult> task = m_Sender.SendCommand(cmdData, cmdDataCount, rspData, rspDataCount);
+                    task.Wait();
+                    success = task.Result.Success;
+                    rspDataCount = task.Result.RspDataCount;
+                }
+                catch (Exception)
+                {
+                    Close();
+                }
             }
             return success;
         }
