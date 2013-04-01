@@ -83,7 +83,8 @@ namespace Monitor
                         break;
                 }
 
-
+                Task delay = Task.Delay(10);
+                delay.Wait();
             }
   
             m_Connection.Close();
