@@ -28,7 +28,7 @@ namespace Monitor
         public void Start()
         {
             m_Quit = false;
-            m_Update = Task.Factory.StartNew(() => Update());
+            m_Update = Task.Run(() => Update());
         }
 
         public void Stop()
@@ -37,7 +37,20 @@ namespace Monitor
             m_Update.Wait();
         }
 
-        private void Update()
+        private void SendState()
+        {
+            if (StateUpdate != null)
+            {
+                State state = m_StateReader.State;
+
+                // Inject connection state
+                state.ConnectionState = m_ConnectionState;
+
+                StateUpdate(this, state);
+            }
+        }
+
+        private async void Update()
         {
             while (!m_Quit)
             {
@@ -61,15 +74,7 @@ namespace Monitor
                             m_ConnectionState = ConnectionState.Connected;
 
                             // Send latest state to listeners
-                            if (StateUpdate != null)
-                            {
-                                State state = m_StateReader.State;
-
-                                // Inject connection state
-                                state.ConnectionState = m_ConnectionState;
-
-                                StateUpdate(this, state);
-                            }
+                            SendState();
                         }
                         else
                         {
@@ -87,7 +92,7 @@ namespace Monitor
                         break;
                 }
 
-
+                await Task.Delay(10);
             }
   
             m_Connection.Close();
