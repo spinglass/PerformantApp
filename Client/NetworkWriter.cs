@@ -54,7 +54,6 @@ namespace Client
 
         private DataWriter m_DataWriter;
         private byte[] m_Buffer;
-        private InMemoryRandomAccessStream m_MemoryStream;
         private BinaryWriter m_MessageWriter;
     }
 }
