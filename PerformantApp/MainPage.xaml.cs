@@ -1,4 +1,5 @@
 ﻿using Client;
+using Common;
 using Monitor;
 using System;
 using System.Collections.Generic;
@@ -58,21 +59,26 @@ namespace PerformantApp
                 IAsyncAction result = Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
                     () =>
                     {
-                        if (m_ServerConnectionState == ServerConnectionState.Disconnected)
-                        {
-                            TextBlock_ServerConnectionState.Text = "Disconnected";
-                        }
-                        else
-                        {
-                            TextBlock_ServerConnectionState.Text = "Connected";
-                        }
+                        TextBlock_ServerConnectionState.Text = m_ServerConnectionState.ToString();
                     });
+            }
+
+            if (m_ConnectionState != m_Connection.State)
+            {
+                m_ConnectionState = m_Connection.State;
+
+                IAsyncAction result = Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+                     () =>
+                     {
+                         TextBlock_PM3ConnectionState.Text = m_ConnectionState.ToString();
+                     });
             }
         }
 
         private Connection m_Connection;
         private Controller m_Controller;
         private ServerConnectionState m_ServerConnectionState;
+        private ConnectionState m_ConnectionState;
         private ThreadPoolTimer m_ServerConnectionStateTimer;
     }
 }

@@ -9,13 +9,21 @@
     mc:Ignorable="d">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-        <Grid Margin="40,40,40,40">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="320" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Margin="40,40,40,40">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Style="{StaticResource SubtitleTextStyle}">Server:</TextBlock>
-            <TextBlock Name="TextBlock_ServerConnectionState" Grid.Row="1" Style="{StaticResource SubheaderTextStyle}">Disconnected</TextBlock>
+            <TextBlock Grid.Row="1" Name="TextBlock_ServerConnectionState" Style="{StaticResource SubheaderTextStyle}">Disconnected</TextBlock>
+            <TextBlock Grid.Row="2" Style="{StaticResource SubtitleTextStyle}" Margin="0,10,0,0">PM3:</TextBlock>
+            <TextBlock Grid.Row="3" Name="TextBlock_PM3ConnectionState" Style="{StaticResource SubheaderTextStyle}">Disconnected</TextBlock>
         </Grid>
     </Grid>
 </Page>
