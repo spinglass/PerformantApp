@@ -32,9 +32,15 @@ namespace PerformantApp
             m_Connection = new Connection("localhost", 7474);
             m_ServerConnectionState = ServerConnectionState.Disconnected;
             m_Controller = new Controller(m_Connection);
+            m_StateView = new StateView();
+            m_StateWatcher = new StateWatcher(Dispatcher, m_StateView, m_Controller);
 
             m_ServerConnectionStateTimer = ThreadPoolTimer.CreatePeriodicTimer(ServerConnectionStateUpdate, TimeSpan.FromSeconds(1.0));
+
+            DataContext = m_StateView;
         }
+
+        public StateView State { get { return m_StateView; } }
 
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
@@ -77,6 +83,8 @@ namespace PerformantApp
 
         private Connection m_Connection;
         private Controller m_Controller;
+        private StateView m_StateView;
+        private StateWatcher m_StateWatcher;
         private ServerConnectionState m_ServerConnectionState;
         private ConnectionState m_ConnectionState;
         private ThreadPoolTimer m_ServerConnectionStateTimer;
