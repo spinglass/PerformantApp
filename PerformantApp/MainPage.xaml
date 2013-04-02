@@ -13,38 +13,38 @@
             <ColumnDefinition Width="320" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Margin="20,40,20,40">
+        <StackPanel Grid.Column="0" Margin="16,40,16,40">
             <TextBlock Style="{StaticResource SubtitleTextStyle}">Server:</TextBlock>
             <TextBlock Name="TextBlock_ServerConnectionState" Style="{StaticResource SubheaderTextStyle}">Disconnected</TextBlock>
             <TextBlock Style="{StaticResource SubtitleTextStyle}" Margin="0,10,0,0">PM3:</TextBlock>
             <TextBlock Name="TextBlock_PM3ConnectionState" Style="{StaticResource SubheaderTextStyle}" Margin="0,0,0,16">Disconnected</TextBlock>
-            <Canvas Width="280" Height="400">
-                <Rectangle Width="272" Height="2" Canvas.Left="4" Canvas.Top="0" Fill="Gray"/>
-                <Rectangle Width="272" Height="2" Canvas.Left="4" Canvas.Top="188" Fill="Gray"/>
-                <Rectangle Width="2" Height="120" Canvas.Left="139" Canvas.Top="192" Fill="Gray"/>
-                <Rectangle Width="272" Height="2" Canvas.Left="4" Canvas.Top="314" Fill="Gray"/>
+            <Border Width="288" Height="312" Padding="4" Background="#FF252E1F">
+                <Canvas Background="#FF687E5A">
+                    <Rectangle Width="272" Height="2" Canvas.Left="4" Canvas.Top="180" Style="{StaticResource BaseRect}"/>
+                    <Rectangle Width="2" Height="118" Canvas.Left="139" Canvas.Top="184" Style="{StaticResource BaseRect}"/>
 
-                <TextBlock Width="232" Canvas.Left="0" Canvas.Top="12" TextAlignment="Right" Style="{StaticResource HeaderTextStyle}" Text="{Binding WorkTime.Concise}" />
+                    <TextBlock Width="220" Canvas.Left="0" Canvas.Top="4" TextAlignment="Right" Style="{StaticResource DataText}" Text="{Binding WorkTime.Concise}" />
 
-                <TextBlock Width="232" Canvas.Left="0" Canvas.Top="72" TextAlignment="Right" Style="{StaticResource HeaderTextStyle}" Text="{Binding WorkDistance.Metres}" />
-                <TextBlock Width="48" Canvas.Left="232" Canvas.Top="90" Style="{StaticResource BaselineTextStyle}" Text="m" />
+                    <TextBlock Width="220" Canvas.Left="0" Canvas.Top="64" TextAlignment="Right" Style="{StaticResource DataText}" Text="{Binding WorkDistance.Metres}" />
+                    <TextBlock Width="42" Canvas.Left="222" Canvas.Top="90" Style="{StaticResource DataLabelText}" Text="m" />
 
-                <TextBlock Width="232" Canvas.Left="0" Canvas.Top="132" TextAlignment="Right" Style="{StaticResource HeaderTextStyle}" Text="{Binding Pace.Concise}" />
-                <TextBlock Width="48" Canvas.Left="232" Canvas.Top="150" Style="{StaticResource BaselineTextStyle}" Text="/500m" />
+                    <TextBlock Width="220" Canvas.Left="0" Canvas.Top="124" TextAlignment="Right" Style="{StaticResource DataText}" Text="{Binding Pace.Concise}" />
+                    <TextBlock Width="42" Canvas.Left="222" Canvas.Top="150" Style="{StaticResource DataLabelText}" Text="/500m" />
 
-                <TextBlock Width="100" Canvas.Left="0" Canvas.Top="202" TextAlignment="Right" Style="{StaticResource HeaderTextStyle}" Text="{Binding StrokeRate}" />
-                <TextBlock Width="32" Canvas.Left="100" Canvas.Top="220" Style="{StaticResource BaselineTextStyle}" Text="s/m" />
+                    <TextBlock Width="90" Canvas.Left="8" Canvas.Top="194" TextAlignment="Right" Style="{StaticResource DataText}" Text="{Binding StrokeRate}" />
+                    <TextBlock Width="32" Canvas.Left="100" Canvas.Top="220" Style="{StaticResource DataLabelText}" Text="s/m" />
 
-                <TextBlock Width="100" Canvas.Left="142" Canvas.Top="202" TextAlignment="Right" Style="{StaticResource HeaderTextStyle}" Text="{Binding HeartRate}" />
-                <TextBlock Width="32" Canvas.Left="242" Canvas.Top="220" Style="{StaticResource BaselineTextStyle}" Text="bpm" />
+                    <TextBlock Width="90" Canvas.Left="150" Canvas.Top="194" TextAlignment="Right" Style="{StaticResource DataText}" Text="{Binding HeartRate}" />
+                    <TextBlock Width="32" Canvas.Left="242" Canvas.Top="220" Style="{StaticResource DataLabelText}" Text="bpm" />
 
-                <TextBlock Name="TextBlock_Calories" Width="100" Canvas.Left="0" Canvas.Top="262" TextAlignment="Right" Style="{StaticResource HeaderTextStyle}" Text="{Binding Calories}" />
-                <TextBlock Width="32" Canvas.Left="100" Canvas.Top="280" Style="{StaticResource BaselineTextStyle}" Text="cal" />
+                    <TextBlock Width="90" Canvas.Left="8" Canvas.Top="254" TextAlignment="Right" Style="{StaticResource DataText}" Text="{Binding Calories}" />
+                    <TextBlock Width="32" Canvas.Left="100" Canvas.Top="280" Style="{StaticResource DataLabelText}" Text="cal" />
 
-                <TextBlock Width="100" Canvas.Left="142" Canvas.Top="262" TextAlignment="Right" Style="{StaticResource HeaderTextStyle}" Text="{Binding Power}" />
-                <TextBlock Width="32" Canvas.Left="242" Canvas.Top="280" Style="{StaticResource BaselineTextStyle}" Text="watt" />
+                    <TextBlock Width="90" Canvas.Left="150" Canvas.Top="254" TextAlignment="Right" Style="{StaticResource DataText}" Text="{Binding Power}" />
+                    <TextBlock Width="32" Canvas.Left="242" Canvas.Top="280" Style="{StaticResource DataLabelText}" Text="watt" />
 
-            </Canvas>
+                </Canvas>
+            </Border>
         </StackPanel>
     </Grid>
 </Page>

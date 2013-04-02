@@ -1,0 +1,29 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PerformantApp.Common">
+
+    <!-- Rectangle styles -->
+
+    <Style x:Key="BaseRect" TargetType="Rectangle">
+        <Setter Property="Fill" Value="#FF40463D"/>
+    </Style>
+
+    <!-- TextBlock styles -->
+    
+    <Style x:Key="BaseText" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="#FF272B24"/>
+        <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}"/>
+        <Setter Property="FontFamily" Value="Verdana"/>
+    </Style>
+
+    <Style x:Key="DataText" TargetType="TextBlock" BasedOn="{StaticResource BaseText}">
+        <Setter Property="FontSize" Value="40" />
+        <Setter Property="TextAlignment" Value="Right" />
+    </Style>
+
+    <Style x:Key="DataLabelText" TargetType="TextBlock" BasedOn="{StaticResource BaseText}">
+        <Setter Property="FontSize" Value="12" />
+    </Style>
+    
+</ResourceDictionary>
