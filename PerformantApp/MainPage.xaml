@@ -8,7 +8,7 @@
     Loaded="OnLoaded"
     mc:Ignorable="d">
 
-    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Style="{StaticResource BaseGrid}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="320" />
             <ColumnDefinition Width="*" />
@@ -18,8 +18,8 @@
             <TextBlock Name="TextBlock_ServerConnectionState" Style="{StaticResource SubheaderTextStyle}">Disconnected</TextBlock>
             <TextBlock Style="{StaticResource SubtitleTextStyle}" Margin="0,10,0,0">PM3:</TextBlock>
             <TextBlock Name="TextBlock_PM3ConnectionState" Style="{StaticResource SubheaderTextStyle}" Margin="0,0,0,16">Disconnected</TextBlock>
-            <Border Width="288" Height="312" Padding="4" Background="#FF252E1F">
-                <Canvas Background="#FF687E5A">
+            <Border Width="288" Height="312" Style="{StaticResource MonitorBorder}">
+                <Canvas Style="{StaticResource MonitorCanvas}">
                     <Rectangle Width="272" Height="2" Canvas.Left="4" Canvas.Top="180" Style="{StaticResource BaseRect}"/>
                     <Rectangle Width="2" Height="118" Canvas.Left="139" Canvas.Top="184" Style="{StaticResource BaseRect}"/>
 

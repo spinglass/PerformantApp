@@ -3,16 +3,29 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:PerformantApp.Common">
 
-    <!-- Rectangle styles -->
+    <!-- Background styles -->
 
+    <Style x:Key="BaseGrid" TargetType="Grid">
+        <Setter Property="Background" Value="#FF003B78"/>
+    </Style>
+
+    <Style x:Key="MonitorBorder" TargetType="Border">
+        <Setter Property="Padding" Value="4"/>
+        <Setter Property="Background" Value="#FF00162D"/>
+    </Style>
+    
+    <Style x:Key="MonitorCanvas" TargetType="Canvas">
+        <Setter Property="Background" Value="#FF688AA8"/>
+    </Style>
+    
     <Style x:Key="BaseRect" TargetType="Rectangle">
-        <Setter Property="Fill" Value="#FF40463D"/>
+        <Setter Property="Fill" Value="#FF00162D"/>
     </Style>
 
     <!-- TextBlock styles -->
     
     <Style x:Key="BaseText" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="#FF272B24"/>
+        <Setter Property="Foreground" Value="#FF00162D"/>
         <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}"/>
         <Setter Property="FontFamily" Value="Verdana"/>
     </Style>
