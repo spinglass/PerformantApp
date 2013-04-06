@@ -5,38 +5,71 @@
 
     <!-- Background styles -->
 
+    <SolidColorBrush x:Key="Brush1" Color="#7C8221" />
+    <SolidColorBrush x:Key="Brush2" Color="#AFB55B" />
+    <SolidColorBrush x:Key="Brush3" Color="#656835" />
+    <SolidColorBrush x:Key="Brush4" Color="#B2B492" />
+    <SolidColorBrush x:Key="Brush5" Color="#E9F079" />
+
     <Style x:Key="BaseGrid" TargetType="Grid">
-        <Setter Property="Background" Value="#FF003B78"/>
+        <Setter Property="Background" Value="{StaticResource Brush4}"/>
     </Style>
 
-    <Style x:Key="MonitorBorder" TargetType="Border">
-        <Setter Property="Padding" Value="4"/>
-        <Setter Property="Background" Value="#FF00162D"/>
+    <Style x:Key="SnapGrid" TargetType="Grid">
+        <Setter Property="Background" Value="{StaticResource Brush3}"/>
     </Style>
     
     <Style x:Key="MonitorCanvas" TargetType="Canvas">
-        <Setter Property="Background" Value="#FF688AA8"/>
+        <Setter Property="Background" Value="{StaticResource Brush3}"/>
     </Style>
     
     <Style x:Key="BaseRect" TargetType="Rectangle">
-        <Setter Property="Fill" Value="#FF00162D"/>
+        <Setter Property="Fill" Value="{StaticResource Brush1}"/>
     </Style>
 
     <!-- TextBlock styles -->
-    
+
     <Style x:Key="BaseText" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="#FF00162D"/>
-        <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}"/>
-        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="Foreground" Value="{StaticResource Brush5}"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+        <Setter Property="LineHeight" Value="20"/>
+        <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
+        <!-- Properly align text along its baseline -->
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TranslateTransform X="-1" Y="4"/>
+            </Setter.Value>
+        </Setter>
     </Style>
 
-    <Style x:Key="DataText" TargetType="TextBlock" BasedOn="{StaticResource BaseText}">
-        <Setter Property="FontSize" Value="40" />
+    <Style x:Key="HeaderText" TargetType="TextBlock" BasedOn="{StaticResource BaseText}">
+        <Setter Property="FontSize" Value="28"/>
+        <Setter Property="LineHeight" Value="34"/>
+        <Setter Property="FontWeight" Value="Light"/>
+    </Style>
+
+    <Style x:Key="SubHeaderText" TargetType="TextBlock" BasedOn="{StaticResource BaseText}">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="LineHeight" Value="22"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    
+    <Style x:Key="BaseDisplayText" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource Brush5}"/>
+        <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}"/>
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+
+    <Style x:Key="DataDisplayText" TargetType="TextBlock" BasedOn="{StaticResource BaseDisplayText}">
+        <Setter Property="FontSize" Value="46" />
         <Setter Property="TextAlignment" Value="Right" />
     </Style>
 
-    <Style x:Key="DataLabelText" TargetType="TextBlock" BasedOn="{StaticResource BaseText}">
+    <Style x:Key="DataLabelDisplayText" TargetType="TextBlock" BasedOn="{StaticResource BaseDisplayText}">
         <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Light"/>
     </Style>
     
 </ResourceDictionary>
